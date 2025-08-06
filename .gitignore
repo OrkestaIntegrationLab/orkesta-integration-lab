@@ -73,9 +73,9 @@ _ReSharper*/
 ########################################
 #Sensitive or local config files
 ########################################
-appsettings.json
-appsettings.Development.json
-launchSettings.json
+# appsettings.json
+# launchSettings.json
+# appsettings.Development.json
 *.pfx
 *.key
 *.pem
