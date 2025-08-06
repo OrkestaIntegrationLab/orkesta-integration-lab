@@ -1,0 +1,6 @@
+@Orkesta.API_HostAddress = http://localhost:5227
+
+GET {{Orkesta.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
