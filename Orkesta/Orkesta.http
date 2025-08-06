@@ -1,6 +1,0 @@
-@Orkesta_HostAddress = http://localhost:5087
-
-GET {{Orkesta_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
