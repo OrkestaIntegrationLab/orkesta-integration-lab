@@ -1,0 +1,22 @@
+<div class="layout-rightpanel" (click)="app.onRightPanelClick($event)">
+    <div class="right-panel-header">
+        <div class="title">
+            <span>{{ 'today' | translate }}</span>
+            <h1>{{ currentDate | date: 'EEEE, dd MMM' }}</h1>
+        </div>
+        <a href="#" class="rightpanel-exit-button" (click)="app.onRightPanelClose($event)">
+            <i class="pi pi-times"></i>
+        </a>
+    </div>
+    <div class="right-panel-content">
+        <div class="right-panel-content-row">
+            <app-panel-right-tasks></app-panel-right-tasks>
+        </div>
+        <div class="right-panel-content-row">
+            <div class="calendar">
+                <h1>Calendar</h1>
+                <p-calendar [inline]="true"></p-calendar>
+            </div>
+        </div>
+    </div>
+</div>

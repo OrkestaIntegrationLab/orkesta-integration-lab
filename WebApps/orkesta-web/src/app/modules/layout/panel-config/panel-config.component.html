@@ -1,0 +1,89 @@
+<div class="layout-config" [ngClass]="{'layout-config-active': app.configActive}" (click)="app.onConfigClick($event)">
+    <a style="cursor: pointer" id="layout-config-button" class="layout-config-button" (click)="onConfigButtonClick($event)">
+        <i class="pi pi-cog"></i>
+    </a>
+    <a style="cursor: pointer" class="layout-config-close" (click)="onConfigCloseClick($event)">
+        <i class="pi pi-times"></i>
+    </a>
+    <div class="layout-config-content">
+        <h5 style="margin-top: 0">Input Style</h5>
+        <div class="p-formgroup-inline">
+            <div class="p-field-radiobutton">
+                <p-radioButton inputId="input_outlined" name="inputstyle" [(ngModel)]="app.inputStyle"  value="outlined"></p-radioButton>
+                <label for="input_outlined">Outlined</label>
+            </div>
+            <div class="p-field-radiobutton">
+                <p-radioButton inputId="input_filled" name="inputstyle" [(ngModel)]="app.inputStyle" value="filled"></p-radioButton>
+                <label for="input_filled">Filled</label>
+            </div>
+        </div>
+
+        <!--<h5>Ripple Effect</h5>
+        <p-inputSwitch [ngModel]="app.ripple" (onChange)="app.onRippleChange($event)" name="layoutMode" ></p-inputSwitch>-->
+
+        <h5>Menu Type</h5>
+        <div class="p-grid">
+            <div class="p-col-6">
+                <div class="p-field-radiobutton">
+                    <p-radioButton inputId="overlay" name="layoutMode" [(ngModel)]="app.horizontalMenu"></p-radioButton>
+                    <label for="static">Overlay</label>
+                </div>
+            </div>
+            <div class="p-col-6">
+                <div class="p-field-radiobutton">
+                    <p-radioButton inputId="horizontal" name="layoutMode" [value]="true" [(ngModel)]="app.horizontalMenu"></p-radioButton>
+                    <label for="horizontal">Horizontal</label>
+                </div>
+            </div>
+        </div>
+
+        <h5>Color Scheme</h5>
+        <div class="p-grid">
+            <div class="p-col-6">
+                <div class="p-field-radiobutton">
+                    <p-radioButton inputId="light" name="colorScheme" [value]="false" [(ngModel)]="app.darkMode" (onClick)="changeLayout($event, false)"></p-radioButton>
+                    <label for="light">Light</label>
+                </div>
+            </div>
+            <div class="p-col-6">
+                <div class="p-field-radiobutton">
+                    <p-radioButton inputId="dark" name="colorScheme" [value]="true" [(ngModel)]="app.darkMode" (onClick)="changeLayout($event, true)"></p-radioButton>
+                    <label for="dark">Dark</label>
+                </div>
+            </div>
+        </div>
+
+        <h5>Menu Colors</h5>
+        <div class="p-formgroup-inline">
+            <div class="p-field-radiobutton">
+                <p-radioButton inputId="lightMenu" name="menuColor"  value="light" [ngModel]="app.menuColorMode" (onClick)="changeMenuColorMode($event, 'light')"></p-radioButton>
+                <label for="lightMenu">Light</label>
+            </div>
+            <div class="p-field-radiobutton">
+                <p-radioButton inputId="darkMenu" name="menuColor" value="dark" [ngModel]="app.menuColorMode" (onClick)="changeMenuColorMode($event, 'dark')"></p-radioButton>
+                <label for="darkMenu">Dark</label>
+            </div>
+            <div class="p-field-radiobutton">
+                <p-radioButton inputId="customMenu" name="menuColor" value="custom" [ngModel]="app.menuColorMode" (onClick)="changeMenuColorMode($event, 'custom')"></p-radioButton>
+                <label for="customMenu">Custom</label>
+            </div>
+        </div>
+        <div class="layout-themes">
+            <div *ngFor="let color of menuColors">
+                <a style="cursor: pointer" (click)="changeMenuColor($event, color.file)"  [ngStyle]="{'background-color': color.color}">
+                    <img src="assets/layout/images/configurator/menu/theme/{{color.image}}" *ngIf="app.menuColorMode === 'custom'" style="height: 100%; width: 100%;" alt="{{color.name}}"/>
+                    <i class="pi pi-check" *ngIf="app.layoutColor === color.file"></i>
+                </a>
+            </div>
+        </div>
+
+        <h5>Themes</h5>
+        <div class="layout-themes">
+            <div *ngFor="let t of componentThemes">
+                <a style="cursor: pointer" (click)="changeComponentTheme($event, t.file)" [ngStyle]="{'background-color': t.color}">
+                    <i class="pi pi-check" *ngIf="app.themeColor === t.file"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

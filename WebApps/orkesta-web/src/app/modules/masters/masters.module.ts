@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { MastersRoutingModule } from './masters-routing.module';
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
+import { WeatherForeCastListComponent } from './weather-forecast/weather-fore-cast-list/weather-fore-cast-list.component';
 
 
 @NgModule({
   declarations: [
-    WeatherForecastComponent
+    WeatherForecastComponent,
+    WeatherForeCastListComponent
   ],
   imports: [
     CommonModule,
