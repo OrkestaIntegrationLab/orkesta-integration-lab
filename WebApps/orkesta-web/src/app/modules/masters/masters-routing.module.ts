@@ -5,7 +5,7 @@ import { LayoutComponent } from '../layout/layout/layout.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'masters',
     component: LayoutComponent,
     children:[
      { path: 'weather-list', component: WeatherForeCastListComponent },

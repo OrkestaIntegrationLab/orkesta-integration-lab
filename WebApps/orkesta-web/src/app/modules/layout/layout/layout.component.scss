@@ -1,0 +1,28 @@
+.layout-content {
+    flex: 1 0 auto;
+    padding: 2em;
+}
+
+p-toast {
+    z-index: 100000;
+}
+
+:host ::ng-deep { 
+    .p-sidebar-content {
+        overflow-y: unset!important;        
+    }
+
+    .layout-sidebar .sidebar-logo img {
+        vertical-align: middle;
+        height: 45px;
+        width: auto !important;
+        border: 0 none;
+    }
+    @media (max-width: 991px) {
+    .layout-wrapper .layout-topbar .layout-topbar-wrapper .layout-topbar-left .layout-topbar-logo-wrapper .layout-topbar-logo img {
+    height: 45px;
+    width: auto !important;
+    border: 0 none;
+        }
+    }
+}
