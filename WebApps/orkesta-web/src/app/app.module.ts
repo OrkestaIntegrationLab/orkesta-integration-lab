@@ -10,6 +10,9 @@ import {Sidebar, SidebarModule} from 'primeng/sidebar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputTextModule } from 'primeng/inputtext';
 import { PrimengModule } from './modules/primeng/primeng.module';
+import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -24,10 +27,12 @@ import { PrimengModule } from './modules/primeng/primeng.module';
     ButtonModule,
     PanelModule,
     SidebarModule,
-    PrimengModule
+    PrimengModule,
+    MessagesModule,
+    ToastModule
     
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

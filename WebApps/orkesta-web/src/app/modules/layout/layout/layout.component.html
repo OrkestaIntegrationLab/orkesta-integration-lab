@@ -1,14 +1,18 @@
 <div class="layout-container">
   <nav class="navbar">
-    <h1>Orkesta v2</h1>
+    <h1>Orkesta</h1>
     <ul>
-      <li><a routerLink="/masters/device" routerLinkActive="active">Devices</a></li>
-      <li><a routerLink="/masters/device-type" routerLinkActive="active">Device Types</a></li>
-      <li><a routerLink="/masters/weather" routerLinkActive="active">Weather</a></li>
+      <li><a routerLink="/masters/device" routerLinkActive="active">Dispositivos</a></li>
+      <li><a routerLink="/masters/device-type" routerLinkActive="active">Tipos de dispositivos</a></li>
+      <li><a routerLink="/masters/weather" routerLinkActive="active">Clima</a></li>
     </ul>
   </nav>
 
   <main class="content">
+    
+    <app-breadcrumb></app-breadcrumb>
+    <p-toast position="top-right"></p-toast>
     <router-outlet></router-outlet>
+    
   </main>
 </div>

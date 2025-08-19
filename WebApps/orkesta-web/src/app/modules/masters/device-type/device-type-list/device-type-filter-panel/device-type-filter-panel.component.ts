@@ -9,7 +9,7 @@ import { DeviceTypeFilter } from 'src/app/models/device-type-filter';
   styleUrls: ['./device-type-filter-panel.component.scss']
 })
 export class DeviceTypeFilterPanelComponent implements OnInit {
-  @Input() expanded: boolean = true;
+  @Input() expanded: boolean = false;
   @Input("filters") filters: DeviceTypeFilter;
   @Output() filtersChange = new EventEmitter<DeviceTypeFilter>();
   @Input("loading") loading: boolean = false;
