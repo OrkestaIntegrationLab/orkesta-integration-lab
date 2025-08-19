@@ -1,19 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MastersRoutingModule } from './masters-routing.module';
-import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
-import { WeatherForeCastListComponent } from './weather-forecast/weather-fore-cast-list/weather-fore-cast-list.component';
+import { DeviceComponent } from './device/device.component';
+import { DeviceTypeComponent } from './device-type/device-type.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { WeatherComponent } from './weather/weather.component';
+import { ButtonModule } from 'primeng/button';
+import { PanelModule } from 'primeng/panel';
+import { SidebarModule } from 'primeng/sidebar';
+import {TableModule} from 'primeng/table';
 
 
 @NgModule({
-  declarations: [
-    WeatherForecastComponent,
-    WeatherForeCastListComponent
-  ],
+  declarations: [DeviceComponent, DeviceTypeComponent,WeatherComponent],
   imports: [
     CommonModule,
-    MastersRoutingModule
+    FormsModule,
+    HttpClientModule,
+    MastersRoutingModule,
+    ButtonModule,
+    PanelModule,
+    SidebarModule,
+    TableModule
+    
   ]
 })
 export class MastersModule { }

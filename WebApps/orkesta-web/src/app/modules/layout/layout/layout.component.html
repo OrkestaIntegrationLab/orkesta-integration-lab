@@ -1,33 +1,14 @@
-<div class="layout-wrapper" (click)="onLayoutClick()"
-     [ngClass]="{'layout-horizontal': horizontalMenu,
-                'layout-wrapper-static': staticMenuActive,
-                'layout-rightpanel-active': rightPanelActive,
-                'layout-topbar-mobile-active': topbarMobileMenuActive,
-                'layout-megamenu-mobile-active': megaMenuMobileActive,
-                'layout-sidebar-mobile-active': menuMobileActive,
-                'p-input-filled': inputStyle === 'filled',
-                'p-ripple-disabled': !ripple}" [class]="menuColor">
+<div class="layout-container">
+  <nav class="navbar">
+    <h1>Orkesta v2</h1>
+    <ul>
+      <li><a routerLink="/masters/device" routerLinkActive="active">Devices</a></li>
+      <li><a routerLink="/masters/device-type" routerLinkActive="active">Device Types</a></li>
+      <li><a routerLink="/masters/weather" routerLinkActive="active">Weather</a></li>
+    </ul>
+  </nav>
 
-    <app-panel-menu [menu]="menu"></app-panel-menu>
-
-    <div class="layout-main">
-        <p-toast position="top-right"></p-toast>
-        <app-panel-topbar [fullName]="fullName" (officeSelected)="onOfficeSelected($event)"></app-panel-topbar>
-
-        <!-- <app-panel-right></app-panel-right> -->
-
-        <app-breadcrumb></app-breadcrumb>
-
-         <div class="layout-content"> 
-            <router-outlet ></router-outlet>
-         </div> 
-
-        <app-panel-footer></app-panel-footer>
-
-        <app-panel-config></app-panel-config>
-
-        <div class="layout-main-mask"></div>
-    </div>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
 </div>
-
-<!--<app-loading [initLoading]="false" initMessage="{{ 'wait_load' | translate }}"></app-loading>-->

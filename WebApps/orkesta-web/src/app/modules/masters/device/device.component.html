@@ -1,0 +1,11 @@
+<div class="card">
+  <h2>Devices</h2>
+  <div class="form-group">
+    <input [(ngModel)]="newDevice.name" placeholder="Device Name" />
+    <button (click)="addDevice()">Add</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let d of devices">{{ d.name }}</li>
+  </ul>
+</div>

@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WeatherForeCastListComponent } from './weather-forecast/weather-fore-cast-list/weather-fore-cast-list.component';
-import { LayoutComponent } from '../layout/layout/layout.component';
+import { DeviceComponent } from './device/device.component';
+import { DeviceTypeComponent } from './device-type/device-type.component';
+import { WeatherComponent } from './weather/weather.component';
 
 const routes: Routes = [
-  {
-    path: 'masters',
-    component: LayoutComponent,
-    children:[
-     { path: 'weather-list', component: WeatherForeCastListComponent },
-    ]
-  }
+  { path: 'device', component: DeviceComponent },
+  { path: 'device-type', component: DeviceTypeComponent },
+  { path: 'weather', component: WeatherComponent },
+
 ];
 
 @NgModule({

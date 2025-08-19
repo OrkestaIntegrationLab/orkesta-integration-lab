@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "orkesta-web": {
+    "orkestaSimple": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/orkesta-web",
+            "outputPath": "dist/orkesta-simple",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -29,8 +29,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/primeflex/primeflex.css"
-             
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           },
@@ -39,8 +40,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1.2mb",
-                  "maximumError": "2mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1.5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -71,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "orkesta-web:build:production"
+              "browserTarget": "orkestaSimple:build:production"
             },
             "development": {
-              "browserTarget": "orkesta-web:build:development"
+              "browserTarget": "orkestaSimple:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "orkesta-web:build"
+            "browserTarget": "orkestaSimple:build"
           }
         },
         "test": {

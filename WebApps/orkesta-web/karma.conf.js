@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/orkesta-web'),
+      dir: require('path').join(__dirname, './coverage/orkesta-simple'),
       subdir: '.',
       reporters: [
         { type: 'html' },

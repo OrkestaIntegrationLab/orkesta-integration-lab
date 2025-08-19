@@ -1,5 +1,5 @@
+import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpParams } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,6 @@ import { HttpParams } from "@angular/common/http";
 export class HttpHelpersService {
 
   constructor() { }
-
 
  getHttpParamsFromPlainObject(object: any, addNulls: boolean = true) {
     let params = new HttpParams();
@@ -53,4 +52,3 @@ const formatDate = (str: string | Date) => {
   ].join("");
   return dformat;
 };
-

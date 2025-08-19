@@ -1,28 +1,36 @@
-.layout-content {
-    flex: 1 0 auto;
-    padding: 2em;
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-p-toast {
-    z-index: 100000;
+.navbar {
+  background-color: #1f2d3d;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-:host ::ng-deep { 
-    .p-sidebar-content {
-        overflow-y: unset!important;        
-    }
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
 
-    .layout-sidebar .sidebar-logo img {
-        vertical-align: middle;
-        height: 45px;
-        width: auto !important;
-        border: 0 none;
-    }
-    @media (max-width: 991px) {
-    .layout-wrapper .layout-topbar .layout-topbar-wrapper .layout-topbar-left .layout-topbar-logo-wrapper .layout-topbar-logo img {
-    height: 45px;
-    width: auto !important;
-    border: 0 none;
-        }
-    }
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a.active {
+  border-bottom: 2px solid #42a5f5;
+}
+
+.content {
+  flex: 1;
+  background-color: #f4f6f8;
+  padding: 2rem;
 }
