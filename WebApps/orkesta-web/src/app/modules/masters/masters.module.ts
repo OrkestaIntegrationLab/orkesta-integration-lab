@@ -11,10 +11,13 @@ import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
 import { SidebarModule } from 'primeng/sidebar';
 import {TableModule} from 'primeng/table';
+import { DeviceTypeListComponent } from './device-type/device-type-list/device-type-list.component';
+import { PrimengModule } from '../primeng/primeng.module';
+import { DeviceTypeFilterPanelComponent } from './device-type/device-type-list/device-type-filter-panel/device-type-filter-panel.component';
 
 
 @NgModule({
-  declarations: [DeviceComponent, DeviceTypeComponent,WeatherComponent],
+  declarations: [DeviceComponent, DeviceTypeComponent,WeatherComponent, DeviceTypeListComponent, DeviceTypeFilterPanelComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,7 +26,8 @@ import {TableModule} from 'primeng/table';
     ButtonModule,
     PanelModule,
     SidebarModule,
-    TableModule
+    TableModule,
+    PrimengModule
     
   ]
 })

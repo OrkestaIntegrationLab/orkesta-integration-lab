@@ -8,6 +8,8 @@ import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
 import {Sidebar, SidebarModule} from 'primeng/sidebar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputTextModule } from 'primeng/inputtext';
+import { PrimengModule } from './modules/primeng/primeng.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LayoutModule,
     ButtonModule,
     PanelModule,
-    SidebarModule
+    SidebarModule,
+    PrimengModule
     
   ],
   providers: [],

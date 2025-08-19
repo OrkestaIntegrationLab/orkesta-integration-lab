@@ -1,9 +1,14 @@
 <div class="card">
-  <h2>Devices</h2>
-  <div class="form-group">
-    <input [(ngModel)]="newDevice.name" placeholder="Device Name" />
-    <button (click)="addDevice()">Add</button>
-  </div>
+  <h2>Dispositivos</h2>
+    <div class="p-fluid p-grid p-formgrid">
+      <div class="p-field p-col-12 p-md-6">
+        <label for="name">Nombre <span [ngStyle]="{'color':'red'}">*</span></label>
+        <input id="float-input" noneSpecialCharacters type="text" pInputText maxlength="50">
+        <small class="p-invalid">El nombre es requerido</small>
+      </div>
+      <!-- Puedes agregar más campos aquí -->
+    </div>
+
 
   <ul>
     <li *ngFor="let d of devices">{{ d.name }}</li>

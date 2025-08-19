@@ -1,0 +1,46 @@
+<div class="grid formgrid mt-4 align-items-center p-3" *ngIf="expanded">
+  <!-- Campo: Tipo de dispositivo -->
+  <div class="col-12 md:col-4 lg:col-3 p-fluid">
+    <div class="p-inputgroup">
+      <span class="p-float-label">
+        <input [(ngModel)]="filters.Name" name="Nombre" id="Name" type="text"
+               pInputText lettersOnly noneSpecialCharacters maxlength="50"
+               (keyup.enter)="search()">
+        <label>Tipo de dispositivo</label>
+      </span>
+    </div>
+  </div>
+
+  <!-- Campo: Abreviatura -->
+  <div class="col-12 md:col-4 lg:col-3 p-fluid">
+    <div class="p-inputgroup">
+      <span class="p-float-label">
+        <input id="float-input" [(ngModel)]="filters.Abbreviation"
+               oninput="this.value = this.value.toUpperCase().trim()"
+               type="text" pInputText maxlength="3" lettersOnly
+               (keyup.enter)="search()">
+        <label for="float-input">Abreviatura</label>
+      </span>
+    </div>
+  </div>
+
+  <!-- Dropdown: Estatus -->
+  <div class="col-12 md:col-4 lg:col-3 p-fluid">
+    <p-dropdown name="cboactive" placeholder="Estatus"
+                [options]="statuslist" [(ngModel)]="filters.Active"
+                (keyup.enter)="search()">
+    </p-dropdown>
+  </div>
+
+  <!-- Botones -->
+  <div class="col-12 flex justify-end">
+    <button pButton pRipple label="Buscar" [disabled]="loading"
+            (click)="search()" icon="pi pi-search"
+            class="p-button-info mr-2">
+    </button>
+    <button pButton pRipple label="Limpiar" [disabled]="loading"
+            (click)="clearFilters()" icon="pi pi-ban"
+            class="p-button-secondary">
+    </button>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+{
+    "data": [
+        {
+            "data": {
+                "IdClaseNomina": 6,
+                "ClaseNomina": "Prueba x2"
+            },
+            "children": [
+                {
+                    "data": {
+                        "IdRelacionLaboral": 82,
+                        "Empleado": "Gualberto Ibarreto",
+                        "NumeroTrabajador": "00078",
+                        "FotoURL": "",
+                        "IdTipoDocumento": 1,
+                        "TipoDocumento": "Natural",
+                        "Identificador": "V",
+                        "NumeroDocumento": "1234567899",
+                        "IdCargo": 76,
+                        "Cargo": "Director de Tecnología",
+                        "Seleccionado": 1
+                    }
+                },
+                {
+                    "data": {
+                        "IdRelacionLaboral": 3131,
+                        "Empleado": "Alma Silva",
+                        "NumeroTrabajador": "00023",
+                        "FotoURL": "",
+                        "IdTipoDocumento": 2,
+                        "TipoDocumento": "Jurídico",
+                        "Identificador": "J",
+                        "NumeroDocumento": "345643554656",
+                        "IdCargo": 1086,
+                        "Cargo": "Gerente nuevo 2",
+                        "Seleccionado": 1
+                    }
+                },
+                {
+                    "data": {
+                        "IdRelacionLaboral": 3170,
+                        "Empleado": "Juan Cuesta",
+                        "NumeroTrabajador": "00031",
+                        "FotoURL": "",
+                        "IdTipoDocumento": 2,
+                        "TipoDocumento": "Jurídico",
+                        "Identificador": "J",
+                        "NumeroDocumento": "55142",
+                        "IdCargo": 1088,
+                        "Cargo": "algo",
+                        "Seleccionado": 1
+                    }
+                }
+            ]
+        }
+    ]
+}
