@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
-
+using Orkesta.Domain.DeviceType;
 using Orkesta.Domain.Weather;
 using Orkesta.Repository.AutoMapper;
 using Orkesta.Repository.Implementations.SqlServer;
@@ -15,13 +15,23 @@ namespace Orkesta.API.ApiConfiguration
         internal static void ConfigureDependencies(this IServiceCollection services)
         {
             services.AddTransient<IConnector, SqlConnector>();
+            
+            //Weather
             services.AddTransient<IWeatherForecastService, WeatherForecastService>();
             services.AddTransient<IWeatherForecastRepository, SqlWeatherForecastRepository>();
 
+            //DeviceType
+            services.AddTransient<IDeviceTypeService, DeviceTypeService>();
+            services.AddTransient<IDeviceTypeRepository, SqlDeviceTypeRepository>();
+
+
             services.AddAutoMapper(cfg =>
             {
-                cfg.AddMaps(typeof(Program).Assembly); // Perfiles en el ensamblado principal
-                cfg.AddMaps(typeof(WeatherForecastRepositoryProfile).Assembly); // Perfiles específicos del repositorio
+                // Perfiles en el ensamblado principal
+                cfg.AddMaps(typeof(Program).Assembly); 
+                // Perfiles específicos del repositorio
+                cfg.AddMaps(typeof(WeatherForecastRepositoryProfile).Assembly);
+                cfg.AddMaps(typeof(DeviceTypeRepositoryProfile).Assembly);
             });
 
 

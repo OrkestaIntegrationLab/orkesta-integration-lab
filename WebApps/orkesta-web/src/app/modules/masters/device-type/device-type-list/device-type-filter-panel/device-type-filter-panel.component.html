@@ -2,7 +2,7 @@
     <div class="p-col-12 p-md-4 p-lg-3">
         <div class="p-inputgroup">
             <span class="p-float-label">
-                <input  [(ngModel)]="filters.Name" name="Nombre" id="Name" type="text" pInputText lettersOnly noneSpecialCharacters maxlength="50" (keyup.enter)="search()">
+                <input  [(ngModel)]="filters.deviceType" name="Nombre" id="Name" type="text" pInputText lettersOnly noneSpecialCharacters maxlength="50" (keyup.enter)="search()">
                 <label>Tipo de dispositivo</label>
             </span>
         </div>
@@ -10,14 +10,14 @@
     <div class="p-col-12 p-md-4 p-lg-3">
         <div class="p-inputgroup">
             <span class="p-float-label">
-                <input id="float-input" [(ngModel)]="filters.Abbreviation" oninput="this.value = this.value.toUpperCase().trim()" type="text" pInputText maxlength="3" lettersOnly (keyup.enter)="search()">
+                <input id="float-input" [(ngModel)]="filters.abreviature" oninput="this.value = this.value.toUpperCase().trim()" type="text" pInputText maxlength="3" lettersOnly (keyup.enter)="search()">
                 <label for="float-input">Abreviatura</label>
             </span>
         </div>
     </div>
   
             <div class="p-col-12 p-md-4 p-lg-3 p-fluid">
-                <p-dropdown name="cboactive" placeholder="Estatus" [options]="statuslist" [(ngModel)]="filters.Active" (keyup.enter)="search()"></p-dropdown>
+                <p-dropdown name="cboactive" placeholder="Estatus" [options]="statuslist" [(ngModel)]="filters.indActive" (keyup.enter)="search()"></p-dropdown>
             </div>
    
     <div class="p-col-12 p-md-3 p-lg-8 p-lg-12 p-d-flex p-jc-end">

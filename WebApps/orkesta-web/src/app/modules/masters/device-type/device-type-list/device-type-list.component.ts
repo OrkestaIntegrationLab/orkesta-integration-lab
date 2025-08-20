@@ -13,8 +13,8 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./device-type-list.component.scss']
 })
 export class DeviceTypeListComponent implements OnInit {
-  showFilters:boolean=false;
-  showDialog:boolean=false;
+  showFilters:boolean = false;
+  showDialog:boolean = false;
   loading: boolean = false;
   deviceTypeFilters: DeviceTypeFilter = new DeviceTypeFilter();
   constructor(

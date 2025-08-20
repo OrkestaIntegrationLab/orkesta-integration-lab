@@ -24,7 +24,7 @@ export class DeviceTypeFilterPanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.filters.Active = -1;
+    this.filters.indActive = -1;
   }
 
     search() {
@@ -35,9 +35,9 @@ export class DeviceTypeFilterPanelComponent implements OnInit {
   }
 
   clearFilters() {
-    this.filters.Abbreviation="";
-    this.filters.Active= -1;
-    this.filters.Name="";
+    this.filters.abreviature="";
+    this.filters.indActive= -1;
+    this.filters.deviceType="";
     //Limpia los filtros
   }
 

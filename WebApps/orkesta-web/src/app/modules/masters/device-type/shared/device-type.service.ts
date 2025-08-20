@@ -18,7 +18,7 @@ export class DeviceTypeService {
  
  
  
-   getDeviceTypeList(filters: DeviceTypeFilter = new DeviceTypeFilter()) {
+   getDeviceTypeList(filters: DeviceTypeFilter) {
      return this._httpClient.get<DeviceType[]>(this.baseUrl, {
          params: this._httpHelpersService.getHttpParamsFromPlainObject(filters)
        });

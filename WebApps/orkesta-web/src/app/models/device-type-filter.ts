@@ -1,6 +1,6 @@
 export class DeviceTypeFilter {
-    Id:number=-1;
-    Active: number = -1;
-    Name: string ="";
-    Abbreviation: string =""; 
+    idDeviceType: number = -1;
+    deviceType: string = '';
+    abreviature: string = '';
+    indActive: number = -1;
 }
