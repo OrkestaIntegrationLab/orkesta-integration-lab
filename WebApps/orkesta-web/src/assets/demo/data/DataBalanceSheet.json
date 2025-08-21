@@ -1,0 +1,180 @@
+[
+    {
+        "colorHex": "#BEBD7F",
+        "etiqueta": "Costos y gastos",
+        "labels": [],
+        "valuesLabels": [
+            {
+                "labels": "DIC-2020",
+                "value": 21723.00
+            },
+            {
+                "labels": "ENE-2021",
+                "value": 22527.00
+            },
+            {
+                "labels": "FEB-2021",
+                "value": 22670.00
+            },
+            {
+                "labels": "MAR-2021",
+                "value": 5000.00
+            },
+            {
+                "labels": "ABR-2021",
+                "value": 12500.00
+            }
+        ],
+        "detallesValores": [
+            {
+                "valor1": "Costos de ingresos",
+                "valor2": 12267.00,
+                "valor3": 13377.00,
+                "valor4": 12798.00,
+                "valor5": 1000.00,
+                "valor6": 1500.00
+            },
+            {
+                "valor1": "Generales y administración",
+                "valor2": 5741.00,
+                "valor3": 4761.00,
+                "valor4": 5066.00,
+                "valor5": 1000.00,
+                "valor6": 2000.00
+            },
+            {
+                "valor1": "Investigación y desarrollo",
+                "valor2": 704.00,
+                "valor3": 864.00,
+                "valor4": 792.00,
+                "valor5": 1000.00,
+                "valor6": 1300.00
+            },
+            {
+                "valor1": "Ventas y marketing",
+                "valor2": 3011.00,
+                "valor3": 3525.00,
+                "valor4": 4014.00,
+                "valor5": 1000.00,
+                "valor6": 7700.00
+            }
+        ]
+    },
+    {
+
+        "colorHex": "#BEBD7F",
+        "etiqueta": "Ingresos",
+        "labels": [],
+        "valuesLabels": [
+            {
+                "labels": "DIC-2020",
+                "value": 47058.00
+            },
+            {
+                "labels": "ENE-2021",
+                "value": 48501.00
+            },
+            {
+                "labels": "FEB-2021",
+                "value": 96655.00
+            },
+            {
+                "labels": "MAR-2021",
+                "value": 4000.00
+            },
+            {
+                "labels": "ABR-2021",
+                "value": 11500.00
+            }
+        ],
+        "detallesValores": [
+            {
+                "valor1": "Producto",
+                "valor2": 41705.00,
+                "valor3": 43564.00,
+                "valor4": 41465.00,
+                "valor5": 1000.00,
+                "valor6": 1500.00
+            },
+            {
+                "valor1": "Servicios y otros",
+                "valor2": 5741.00,
+                "valor3": 4761.00,
+                "valor4": 5066.00,
+                "valor5": 5353.00,
+                "valor6": 2000.00
+            },
+            {
+                "valor1": "Investigación y desarrollo",
+                "valor2": 55190.00,
+                "valor3": 864.00,
+                "valor4": 792.00,
+                "valor5": 1000.00,
+                "valor6": 1300.00
+            },
+            {
+                "valor1": "Ventas y marketing",
+                "valor2": 3011.00,
+                "valor3": 3525.00,
+                "valor4": 4014.00,
+                "valor5": 1000.00,
+                "valor6": 7700.00
+            }
+        ]
+    },
+    {
+        "colorHex": "#BEBD7F",
+        "etiqueta": "Ingresos procedentes de operaciones",
+        "labels": [],
+        "valuesLabels": [
+            {
+                "labels": "DIC-2020",
+                "value": 21723.00
+            },
+            {
+                "labels": "ENE-2021",
+                "value": 22527.00
+            },
+            {
+                "labels": "FEB-2021",
+                "value": 22670.00
+            },
+            {
+                "labels": "MAR-2021",
+                "value": 5000.00
+            },
+            {
+                "labels": "ABR-2021",
+                "value": 12500.00
+            }
+        ],
+        "detallesValores": [
+            {
+                "valor1": "Otros ingresos (gastos)",
+                "valor2": 2531.00,
+                "valor3": 2903.00,
+                "valor4": 2339.00,
+                "valor5": 5555.00,
+                "valor6": 4795.00
+            },
+            {
+                "valor1": "Aguinaldos(gastos)",
+                "valor2": 2531.00,
+                "valor3": 278903.00,
+                "valor4": 787.00,
+                "valor5": 787.00,
+                "valor6": 4795.00
+            }
+            
+            
+        ]
+    }
+]
+
+
+
+
+
+
+
+

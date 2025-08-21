@@ -15,6 +15,15 @@ namespace Orkesta.API {
 
             builder.Services.ConfigureDependencies();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngular",
+                    policy => policy.WithOrigins("http://localhost:4200")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod());
+            });
+
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -33,6 +42,9 @@ namespace Orkesta.API {
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("AllowAngular");
+
 
             app.UseAuthorization();
 

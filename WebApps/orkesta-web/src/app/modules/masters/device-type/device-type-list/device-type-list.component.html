@@ -1,0 +1,43 @@
+<div class="card p-m-0 p-pb-0">
+    <div class="p-d-flex p-ai-center p-jc-between p-flex-column p-flex-md-row">
+      <!-- <h5 class="p-mb-3 p-mb-md-0 p-mb-lg-0">Puertos <span *ngIf="showFilters">> Filtrar</span></h5> -->
+      <span class="p-input-icon-left p-ml-md-auto p-mr-md-3 p-mb-3 p-mb-md-0 p-mb-lg-0">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text"  placeholder="Buscar..." />
+      </span>
+      <div>
+        <button pButton pRipple icon="pi pi-plus" class="p-button-success" [ngClass]="{'p-button-danger':showDialog}" (click)="openNew()" pTooltip="Crear nuevo" tooltipPosition="top"></button>
+        <button  pButton pRipple icon="pi pi-filter" class="p-ml-2 p-button-help" [ngClass]="{'p-button-danger':showFilters}" (click)="showFilters=!showFilters" pTooltip="Filtros" tooltipPosition="top"></button>
+      </div>
+    </div>
+  
+  <app-device-type-filter-panel (onSearch)="search()" [(filters)]="deviceTypeFilters" [expanded]="showFilters" [loading]="loading" class="p-mt-3"></app-device-type-filter-panel>
+</div>
+
+<div class="card p-m-0 p-pb-0">
+
+  <p-table [value]=" this._deviceTypeService._deviceTypeList" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nombre</th>
+            <th>Abreviatura</th>
+            <th>Activo</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-model>
+        <tr>
+            <td>{{model.deviceTypeName}}</td>
+            <td>{{model.abreviature}}</td>
+            <td>{{model.indActive}}</td>
+            <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="onEdit(model)" pTooltip="Editar"></button>
+          </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+</div>
+
+
+  <app-device-type-panel *ngIf="showDialog" [(showDialog)]="showDialog" [(_data)]="_DeviceTypeViewModel" [(filters)]="deviceTypeFilters"  ></app-device-type-panel>
