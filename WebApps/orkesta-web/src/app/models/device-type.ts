@@ -3,4 +3,6 @@ export class DeviceType {
     deviceTypeName: string = '';
     abreviature: string = '';
     indActive: boolean = false;
+
+    isdisabled:boolean=false;
 }

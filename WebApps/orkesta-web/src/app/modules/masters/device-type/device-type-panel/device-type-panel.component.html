@@ -1,8 +1,47 @@
 <p-sidebar [(visible)]="showDialog" (onShow)="ngOnInit()" (onHide)="hideDialog()" [blockScroll]="false"
   [showCloseIcon]="true" [dismissible]="false" position="right" styleClass="p-sidebar-md" [style]="{'overflow': 'scroll'}">
 
-  <ng-template pTemplate="header">Header Content</ng-template>
-  <ng-template pTemplate="content">Body Content</ng-template>
-  <ng-template pTemplate="footer">Footer Content</ng-template>
+  <ng-template pTemplate="header"> 
+    <h5 class="p-m-0">Tipo dispositivo</h5>
+  </ng-template>
+  <ng-template pTemplate="content">
 
-</p-sidebar>
+ <div class="p-fluid p-grid p-formgrid">
+          <div class="p-field p-col-12 p-md-12 p-sm-12">
+            <label for="name">Nombre <span [ngStyle]="{'color':'red'}">*</span></label>
+            <input id="float-input" [(ngModel)]="_data.deviceTypeName" lettersOnly type="text" pInputText
+              (input)="_validations.toCapitalizeSimbology($event)"
+              maxlength="50" [class]="submitted && (!_data.deviceTypeName || !_data.deviceTypeName.trim()) ? 'ng-dirty ng-invalid' : ''" (keyup.enter)="saveDeviceType()" (paste)="_validations.noPaste($event)">
+            <small class="p-invalid" *ngIf="submitted && (!_data.deviceTypeName || !_data.deviceTypeName.trim())">El nombre es
+              requerido</small>
+          </div>
+
+
+  <div class="p-field p-col-12 p-md-12 p-sm-12">
+         <label for="abreviature">Abreviatura </label>
+         <input type="text" pInputText id="abreviature" (input)="_validations.toUppercaseString($event)"
+           [(ngModel)]="_data.abreviature" maxlength="3" autofocus lettersOnly (keyup.enter)="saveDeviceType()" (paste)="_validations.noPaste($event)" />
+           <small class="p-invalid" *ngIf="(submitted &&( _data.deviceTypeName && _data.deviceTypeName.trim().toLocaleUpperCase() == _data.abreviature.trim()))||( _data.deviceTypeName && _data.deviceTypeName.trim().toLocaleUpperCase() == _data.abreviature.trim().toLocaleUpperCase()) ">La abreviatura debe ser diferente al nombre</small>
+   </div>
+
+  <div class="p-field p-col-12 p-md-12 p-sm-12">
+       <label for="active">Estatus <span [ngStyle]="{'color':'red'}">*</span></label>
+       <p-dropdown name="cboactive" [options]="statuslist" appendTo="body" [(ngModel)]="_data.indActive" placeholder="Estatus" [disabled]="_data.idDeviceType<=0" (keyup.enter)="saveDeviceType()" ></p-dropdown>
+  </div>
+
+  <div class="p-field p-col-12 p-md-12 p-sm-12">
+    <span [ngStyle]="{'color':'red'}">(*) Campos obligatorios</span>
+  </div>
+  <div class="p-field p-col-12 p-md-12">
+    <button   pButton pRipple  label="Guardar" (click)="saveDeviceType()" icon="pi pi-save"
+      class="p-button-info p-mr-2"></button>
+  </div>
+
+
+ </div>
+
+
+
+
+</ng-template>
+<p-confirmDialog [style]="{width: '30vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>

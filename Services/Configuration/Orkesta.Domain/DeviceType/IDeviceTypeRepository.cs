@@ -10,5 +10,7 @@ namespace Orkesta.Domain.DeviceType
     public interface IDeviceTypeRepository
     {
         List<DeviceType> GetDeviceTypeList(DeviceTypeFilter filter);
+
+        long InsertDeviceType(DeviceType deviceType, long idUser);
     }
 }

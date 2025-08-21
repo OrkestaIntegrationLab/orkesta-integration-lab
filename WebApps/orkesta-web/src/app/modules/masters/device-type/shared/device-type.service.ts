@@ -24,7 +24,7 @@ export class DeviceTypeService {
        });
    }
  
-     create(device: DeviceType): Observable<DeviceType> {
-       return this._httpClient.post<DeviceType>(this.baseUrl, device);
-     }
+   UpdateDeviceType(devicetype: DeviceType) {
+        return this._httpClient.post<number>(this.baseUrl, devicetype);
+}
 }

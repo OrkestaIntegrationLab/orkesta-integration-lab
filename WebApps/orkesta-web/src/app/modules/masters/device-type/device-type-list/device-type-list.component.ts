@@ -17,6 +17,7 @@ export class DeviceTypeListComponent implements OnInit {
   showDialog:boolean = false;
   loading: boolean = false;
   deviceTypeFilters: DeviceTypeFilter = new DeviceTypeFilter();
+  _DeviceTypeViewModel:DeviceType;
   constructor(
        private _breadcrumbService: BreadcrumbService ,
        private _messageService: MessageService,
@@ -31,6 +32,7 @@ export class DeviceTypeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.search();
   }
 
     search() {
@@ -45,9 +47,18 @@ export class DeviceTypeListComponent implements OnInit {
     });
   }
 
-    openNew() {
-    //this._DeviceTypeViewModel = new DeviceType;;
-     this.showDialog = true;
+  openNew() {
+    this._DeviceTypeViewModel = new DeviceType;;
+    this.showDialog = true;
+  }
+
+    onEdit(devicetype : DeviceType) {
+    this._DeviceTypeViewModel = new DeviceType;
+    this._DeviceTypeViewModel.idDeviceType = devicetype.idDeviceType;
+    this._DeviceTypeViewModel.deviceTypeName = devicetype.deviceTypeName;
+    this._DeviceTypeViewModel.abreviature = devicetype.abreviature;
+    this._DeviceTypeViewModel.indActive = devicetype.indActive;
+    this.showDialog = true;
   }
 
 

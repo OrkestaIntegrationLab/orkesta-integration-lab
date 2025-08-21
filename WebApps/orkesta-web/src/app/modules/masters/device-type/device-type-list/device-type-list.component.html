@@ -14,7 +14,7 @@
   <app-device-type-filter-panel (onSearch)="search()" [(filters)]="deviceTypeFilters" [expanded]="showFilters" [loading]="loading" class="p-mt-3"></app-device-type-filter-panel>
 </div>
 
-<div class="card">
+<div class="card p-m-0 p-pb-0">
 
   <p-table [value]=" this._deviceTypeService._deviceTypeList" [tableStyle]="{'min-width': '50rem'}">
     <ng-template pTemplate="header">
@@ -22,6 +22,7 @@
             <th>Nombre</th>
             <th>Abreviatura</th>
             <th>Activo</th>
+            <th></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-model>
@@ -29,6 +30,9 @@
             <td>{{model.deviceTypeName}}</td>
             <td>{{model.abreviature}}</td>
             <td>{{model.indActive}}</td>
+            <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="onEdit(model)" pTooltip="Editar"></button>
+          </td>
         </tr>
     </ng-template>
 </p-table>
@@ -36,4 +40,4 @@
 </div>
 
 
-  <app-device-type-panel *ngIf="showDialog" [(showDialog)]="showDialog" [(_dataDeviceType)]="_DeviceTypeViewModel" [(filters)]="deviceTypeFilters"  ></app-device-type-panel>
+  <app-device-type-panel *ngIf="showDialog" [(showDialog)]="showDialog" [(_data)]="_DeviceTypeViewModel" [(filters)]="deviceTypeFilters"  ></app-device-type-panel>
