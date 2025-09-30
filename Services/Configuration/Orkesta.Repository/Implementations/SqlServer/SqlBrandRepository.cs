@@ -1,46 +1,49 @@
 ﻿using AutoMapper;
 using Newtonsoft.Json.Linq;
+using Orkesta.Domain.Brand;
 using Orkesta.Domain.DeviceType;
+using Orkesta.Repository.Dao.Brand;
 using Orkesta.Repository.Dao.Common.Database;
 using Orkesta.Repository.Dao.DeviceType;
 using Orkesta.Repository.Interfaces;
 using Orkesta.Repository.Utils;
+using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Orkesta.Repository.Implementations.SqlServer
 {
-    public class SqlDeviceTypeRepository : IDeviceTypeRepository
+    public class SqlBrandRepository : IBrandRepository
     {
         private IMapper _mapper;
         private IConnector _connector;
 
-        public SqlDeviceTypeRepository(IConnector connector, IMapper mapper)
+        public SqlBrandRepository(IMapper mapper , IConnector connector)
         {
             _mapper = mapper;
             _connector = connector;
         }
-        public List<DeviceType> GetDeviceTypeList(DeviceTypeFilter filter)
+        public List<Brand> GetBrandList(BrandFilter filter)
         {
-            //MAPEO DOMAIN - DAO
-            var daoFilter = _mapper.Map<DeviceTypeFilterDao>(filter);
+            var daoFilter = _mapper.Map<BrandFilterDao>(filter);
 
-            //LLAMADA SP A BASE DE DATOS
-            var dataSet = _connector.GetJson("[Maestro].[spConsultarTiposDispositivos]", JObject.FromObject(daoFilter));
+            var dataSet = _connector.GetJson("[Maestro].[spConsultarMarcas]", JObject.FromObject(daoFilter));
 
-            //DESEREALIZACION DE LA DATA
-            var resultDao = JsonUtils.DeserializeObjectOrDefault(dataSet, new List<DeviceTypeDao>());
+            var resultDao = JsonUtils.DeserializeObjectOrDefault(dataSet, new List<BrandDao>());
 
-            //dao a domain
-            var resultDoman = _mapper.Map<List<DeviceType>>(resultDao.ToList());
+            var resultDoman = _mapper.Map<List<Brand>>(resultDao.ToList());
 
             return resultDoman;
         }
 
-        public long InsertDeviceType(DeviceType deviceType, long idUser)
+        public long InsertBrand(Brand brand, long idUser)
         {
-            var daoModel = _mapper.Map<DeviceTypeDao>(deviceType);
+            var daoModel = _mapper.Map<BrandDao>(brand);
 
-            var result = _connector.ExecuteWithJsonInput("[Maestro].[spActualizarTiposDispositivos]", daoModel, new List<SqlParameter>()
+            var result = _connector.ExecuteWithJsonInput("[Maestro].[spActualizarMarcas]", daoModel, new List<SqlParameter>()
             {
                 new SqlParameter("IdUsuario", idUser)
             });
@@ -55,6 +58,8 @@ namespace Orkesta.Repository.Implementations.SqlServer
                     return -3;
                 if (result.IdResponseCode == (int)DatabaseResult.ResponseCodes.GeneralError)
                     return -4;
+                if (result.IdResponseCode == (int)DatabaseResult.ResponseCodes.DuplicatedBrand)
+                    return -5;
             }
 
             return result.EntityId;

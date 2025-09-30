@@ -75,6 +75,12 @@ namespace Orkesta.Repository.Dao.Common.Database
             /// Abreviatura de entidad duplicada
             /// </sumary>
             DuplicatedBranchOfficeCode = 1045,
+
+
+            /// <sumary>
+            /// Abreviatura de entidad duplicada
+            /// </sumary>
+            DuplicatedBrand = 1049,
         }
     }
 }

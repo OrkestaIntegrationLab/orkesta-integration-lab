@@ -15,5 +15,7 @@ namespace Orkesta.Repository.Dao.DeviceType
 
         [JsonProperty("IndActivo")]
         public bool IndActive { get; set; }
+
+
     }
 }
