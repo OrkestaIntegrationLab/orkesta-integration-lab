@@ -3,8 +3,10 @@
     <div class="p-col-12 p-md-4 p-lg-3">
         <div class="p-inputgroup">
             <span class="p-float-label">
-                <input  [(ngModel)]="filters.deviceType" name="Nombre" id="Name" type="text" pInputText lettersOnly noneSpecialCharacters maxlength="50" (keyup.enter)="search()">
-                <label>Tipo de dispositivo</label>
+                <input  [(ngModel)]="filters.brandName" name="brandName" id="brandName" type="text" 
+                        pInputText lettersOnly noneSpecialCharacters maxlength="50"
+                        (keyup.enter)="search()">
+                <label>Marca</label>
             </span>
         </div>
     </div>
@@ -17,15 +19,14 @@
             </span>
         </div>
     </div>
-  
+
     <div class="p-col-12 p-md-4 p-lg-3 p-fluid">
-                <p-dropdown name="cboactive" placeholder="Estatus" [options]="statuslist" [(ngModel)]="filters.indActive" (keyup.enter)="search()"></p-dropdown>
+        <p-dropdown name="cboactive" placeholder="Estatus" [options]="statuslist" [(ngModel)]="filters.indActive" (keyup.enter)="search()"></p-dropdown>
     </div>
-   
+
     <div class="p-col-12 p-md-3 p-lg-8 p-lg-12 p-d-flex p-jc-end">
         <button pButton pRipple label="Buscar" [disabled]="loading" (click)="search()" icon="pi pi-search" class="p-button-info p-mr-2"></button>
         <button pButton pRipple label="Limpiar" [disabled]="loading" (click)="clearFilters()" icon="pi pi-ban" class="p-button-secondary"></button>
     </div>
 
-    
 </div>

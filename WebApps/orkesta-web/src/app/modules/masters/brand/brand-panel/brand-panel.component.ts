@@ -1,68 +1,63 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MessageService, SelectItem } from 'primeng/api';
-import { DeviceType } from 'src/app/models/device-type';
-import { DeviceTypeFilter } from 'src/app/models/device-type-filter';
+import { Brand } from 'src/app/models/brand';
+import { BrandFilter } from 'src/app/models/brand-filter';
 import { Validations } from 'src/app/modules/common/utils/validations';
-import { DeviceTypeService } from '../shared/device-type.service';
+import { BrandService } from '../shared/brand.service';
 
 @Component({
-  selector: 'app-device-type-panel',
-  templateUrl: './device-type-panel.component.html',
-  styleUrls: ['./device-type-panel.component.scss']
+  selector: 'app-brand-panel',
+  templateUrl: './brand-panel.component.html',
+  styleUrls: ['./brand-panel.component.scss']
 })
-export class DeviceTypePanelComponent implements OnInit {
+export class BrandPanelComponent implements OnInit {
   submitted: boolean;
-  _validations : Validations = new Validations();
- 
+ _validations : Validations = new Validations();
+
  @Input("showDialog") showDialog: boolean = true;
- @Input("_data") _data: DeviceType;
- @Input("filters") filters: DeviceTypeFilter;
+ @Input("_data") _data : Brand;
+ @Input("filters") filters : BrandFilter;
  @Output() showDialogChange = new EventEmitter<boolean>();
- 
+
   statuslist: SelectItem[] = [ { 
-    label: 'Activo', value: true},
-  { label: 'Inactivo', value: false}];
-  
+     label: 'Activo', value: true},
+   { label: 'Inactivo', value: false}];
+
   constructor(
-           private _messageService: MessageService,
-           public _deviceTypeService: DeviceTypeService 
+      private _messageService: MessageService,
+      public _brandService: BrandService
   ) { }
 
-   ngOnInit(): void {
-    if(this._data.idDeviceType<=0)
-       this._data.indActive=true;
+  ngOnInit(): void {
   }
 
-  saveDeviceType() 
-  {
-
+  saveBrand() {
     this.submitted = true;
-    this._data.isdisabled=true;
-    
-    if(this._data.abreviature!= "")
-       this._data.abreviature = this._data.abreviature.toLocaleUpperCase();
-    
-    if (this._data.deviceTypeName != "" && this._data.deviceTypeName.trim()) {
-       if(this._data.deviceTypeName.trim().toLocaleUpperCase() !== this._data.abreviature.trim().toLocaleUpperCase()){
-          this.Save()
+    this._data.isdisabled = true;
+
+    if (this._data.abreviature != "")
+      this._data.abreviature = this._data.abreviature.toLocaleUpperCase();
+
+    if (this._data.brandName != "" && this._data.brandName.trim()) {
+      if (this._data.brandName.trim().toLocaleUpperCase() !== this._data.abreviature.trim().toLocaleUpperCase()) {
+        this.Save()
       }
     }
-    this._data.isdisabled=false;
+    this._data.isdisabled = false;
   }
 
-  Save()
-  {
-    this._deviceTypeService.UpdateDeviceType(this._data).subscribe((data) => {
-      
+  Save() {
+    this._brandService.UpdateBrand(this._data).subscribe((data) => {
+
       if (data> 0) {
 
              this._messageService.add({ severity: 'success', summary: 'Guardado', detail: "Guardado exitoso" });
              this.showDialog = false;
              this.showDialogChange.emit(this.showDialog);
-             this._data = new DeviceType();
+             this._data = new Brand();
              this._data.indActive = true;
-             this._deviceTypeService.getDeviceTypeList(this.filters).subscribe((data: DeviceType[]) => {
-             this._deviceTypeService._deviceTypeList = data;
+             this._brandService.getBrandList(this.filters).subscribe((data: Brand[]) => {
+             this._brandService._brandList = data;
            
             });
             
@@ -84,16 +79,16 @@ export class DeviceTypePanelComponent implements OnInit {
         }, () => {
           this._messageService.add({ severity: 'error', summary: 'Error', detail: "Ha ocurrido un error al guardar los datos" });
         });
-  }
+}
 
 
-
-    hideDialog(): void {
+  hideDialog(): void {
     this.showDialog = false;
     this.showDialogChange.emit(this.showDialog);
     this.submitted = false;
-    this._data = new DeviceType();
-    this._data.idDeviceType = -1;
+    this._data = new Brand();
+    this._data.idBrand = -1;
     this._data.indActive = true;
   }
+
 }

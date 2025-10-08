@@ -15,5 +15,9 @@
         public int Quantity { get; set; }
 
         public bool IndActive { get; set; }
+
+        public string? DeviceTypeName { get; set; }
+
+        public string? BrandName { get; set; }
     }
 }

@@ -10,15 +10,18 @@
       </div>
     </div>
   
-  <app-device-type-filter-panel (onSearch)="search()" [(filters)]="deviceTypeFilters" [expanded]="showFilters" [loading]="loading" class="p-mt-3"></app-device-type-filter-panel>
+  <app-device-type-filter-panel (onSearch)="search()" [(filters)]="deviceFilters" [expanded]="showFilters" [loading]="loading" class="p-mt-3"></app-device-type-filter-panel>
 </div>
 
 <div class="card p-m-0 p-pb-0">
 
-  <p-table [value]=" this._deviceTypeService._deviceTypeList" [tableStyle]="{'min-width': '50rem'}">
+  <p-table [value]=" this._deviceService._deviceList" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10,20]" [loading]="loading" [responsiveLayout]="'scroll'" sortMode="multiple" [globalFilterFields]="['deviceName','brandName','deviceTypeName','quantity','abreviation','indActive']" [style]="{'overflow': 'scroll'}">
     <ng-template pTemplate="header">
         <tr>
             <th>Nombre</th>
+            <th>Marca</th>
+            <th>Tipo de dispositivo</th>
+            <th>Catidad</th>
             <th>Abreviatura</th>
             <th>Activo</th>
             <th></th>
@@ -26,8 +29,11 @@
     </ng-template>
     <ng-template pTemplate="body" let-model>
         <tr>
+            <td>{{model.deviceName}}</td>
+            <td>{{model.brandName}}</td>
             <td>{{model.deviceTypeName}}</td>
-            <td>{{model.abreviature}}</td>
+            <td>{{model.quantity}}</td>
+            <td>{{model.abreviation}}</td>
             <td>{{model.indActive}}</td>
             <td>
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="onEdit(model)" pTooltip="Editar"></button>
@@ -39,8 +45,9 @@
 </div>
 
 
-<app-device-type-panel *ngIf="showDialog" 
+<app-device-panel *ngIf="showDialog" 
                         [(showDialog)]="showDialog" 
-                        [(_data)]="_DeviceTypeViewModel" 
-                        [(filters)]="deviceTypeFilters">
-</app-device-type-panel>
+                        [(_data)]="_DeviceViewModel" 
+                        [(filters)]="deviceFilters">
+</app-device-panel>
+

@@ -9,13 +9,19 @@
         <button  pButton pRipple icon="pi pi-filter" class="p-ml-2 p-button-help" [ngClass]="{'p-button-danger':showFilters}" (click)="showFilters=!showFilters" pTooltip="Filtros" tooltipPosition="top"></button>
       </div>
     </div>
-  
-  <app-device-type-filter-panel (onSearch)="search()" [(filters)]="deviceTypeFilters" [expanded]="showFilters" [loading]="loading" class="p-mt-3"></app-device-type-filter-panel>
+
+
+ <app-brand-filter-panel (onSearch)="search()" 
+                         [(filters)]="brandFilters" 
+                         [expanded]="showFilters" 
+                         [loading]="loading" 
+                         class="p-mt-3"></app-brand-filter-panel>
+
 </div>
 
 <div class="card p-m-0 p-pb-0">
-
-  <p-table [value]=" this._deviceTypeService._deviceTypeList" [tableStyle]="{'min-width': '50rem'}">
+<p-table [value]=" this._brandService._brandList" [tableStyle]="{'min-width': '50rem'}">
+   
     <ng-template pTemplate="header">
         <tr>
             <th>Nombre</th>
@@ -24,23 +30,22 @@
             <th></th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-model>
+
+  <ng-template pTemplate="body" let-model>
         <tr>
-            <td>{{model.deviceTypeName}}</td>
+            <td>{{model.brandName}}</td>
             <td>{{model.abreviature}}</td>
             <td>{{model.indActive}}</td>
             <td>
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="onEdit(model)" pTooltip="Editar"></button>
           </td>
         </tr>
-    </ng-template>
+</ng-template>
 </p-table>
-
 </div>
 
-
-<app-device-type-panel *ngIf="showDialog" 
+<app-brand-panel *ngIf="showDialog" 
                         [(showDialog)]="showDialog" 
-                        [(_data)]="_DeviceTypeViewModel" 
-                        [(filters)]="deviceTypeFilters">
-</app-device-type-panel>
+                        [(_data)]="_BrandViewModel" 
+                        [(filters)]="brandFilters">
+</app-brand-panel>

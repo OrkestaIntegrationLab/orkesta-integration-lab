@@ -29,5 +29,12 @@ namespace Orkesta.Repository.Dao.Device
 
         [JsonProperty("IndActivo")]
         public bool IndActive { get; set; }
+
+
+        [JsonProperty("TipoDispositivo")]
+        public string? DeviceTypeName { get; set; }
+
+        [JsonProperty("Marca")]
+        public string? BrandName { get; set; }
     }
 }

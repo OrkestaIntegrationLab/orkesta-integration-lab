@@ -36,5 +36,14 @@ namespace Orkesta.API.Controllers
             List<DeviceViewModel> data = this._mapper.Map<List<DeviceViewModel>>(result);
             return new JsonResult(data);
         }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult<long> Post([FromBody] DeviceViewModel model)
+        {
+            var result = _deviceService.InsertDevice(_mapper.Map<Device>(model), 1);
+            return new JsonResult(result);
+        }
     }
 }

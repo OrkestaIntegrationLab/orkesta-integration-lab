@@ -9,10 +9,10 @@
  <div class="p-fluid p-grid p-formgrid">
           <div class="p-field p-col-12 p-md-12 p-sm-12">
             <label for="name">Nombre <span [ngStyle]="{'color':'red'}">*</span></label>
-            <input id="float-input" [(ngModel)]="_data.deviceTypeName" lettersOnly type="text" pInputText
+            <input id="float-input" [(ngModel)]="_data.brandName" lettersOnly type="text" pInputText
               (input)="_validations.toCapitalizeSimbology($event)"
-              maxlength="50" [class]="submitted && (!_data.deviceTypeName || !_data.deviceTypeName.trim()) ? 'ng-dirty ng-invalid' : ''" (keyup.enter)="saveDeviceType()" (paste)="_validations.noPaste($event)">
-            <small class="p-invalid" *ngIf="submitted && (!_data.deviceTypeName || !_data.deviceTypeName.trim())">El nombre es
+              maxlength="50" [class]="submitted && (!_data.brandName || !_data.brandName.trim()) ? 'ng-dirty ng-invalid' : ''" (keyup.enter)="saveDeviceType()" (paste)="_validations.noPaste($event)">
+            <small class="p-invalid" *ngIf="submitted && (!_data.brandName || !_data.brandName.trim())">El nombre es
               requerido</small>
   </div>
 
@@ -20,8 +20,8 @@
   <div class="p-field p-col-12 p-md-12 p-sm-12">
          <label for="abreviature">Abreviatura </label>
          <input type="text" pInputText id="abreviature" (input)="_validations.toUppercaseString($event)"
-           [(ngModel)]="_data.abreviature" maxlength="3" autofocus lettersOnly (keyup.enter)="saveDeviceType()" (paste)="_validations.noPaste($event)" />
-           <small class="p-invalid" *ngIf="(submitted &&( _data.deviceTypeName && _data.deviceTypeName.trim().toLocaleUpperCase() == _data.abreviature.trim()))||( _data.deviceTypeName && _data.deviceTypeName.trim().toLocaleUpperCase() == _data.abreviature.trim().toLocaleUpperCase()) ">La abreviatura debe ser diferente al nombre</small>
+           [(ngModel)]="_data.abreviature" maxlength="3" autofocus lettersOnly (keyup.enter)="saveBrand()" (paste)="_validations.noPaste($event)" />
+           <small class="p-invalid" *ngIf="(submitted &&( _data.brandName && _data.brandName.trim().toLocaleUpperCase() == _data.abreviature.trim()))||( _data.deviceTypeName && _data.deviceTypeName.trim().toLocaleUpperCase() == _data.abreviature.trim().toLocaleUpperCase()) ">La abreviatura debe ser diferente al nombre</small>
    </div>
 
   <div class="p-field p-col-12 p-md-12 p-sm-12">
@@ -35,7 +35,7 @@
 
 
   <div class="p-field p-col-12 p-md-12">
-    <button   pButton pRipple  label="Guardar" (click)="saveDeviceType()" icon="pi pi-save"
+    <button   pButton pRipple  label="Guardar" (click)="saveBrand()" icon="pi pi-save"
       class="p-button-info p-mr-2"></button>
   </div>
 
