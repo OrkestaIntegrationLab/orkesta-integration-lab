@@ -24,7 +24,8 @@ namespace Orkesta.Domain.DeviceType
         {
             if (deviceType == null)
                 throw new ArgumentsNullException();
-            return _deviceTypeRepository.InsertDeviceType(deviceType, idUser);
+            var insert = _deviceTypeRepository.InsertDeviceType(deviceType, idUser);
+            return insert;
         }
     }
 }

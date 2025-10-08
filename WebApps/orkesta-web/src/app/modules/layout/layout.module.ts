@@ -13,7 +13,9 @@ import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [LayoutComponent, BreadcrumbComponent],
   imports: [CommonModule, RouterModule, BreadcrumbModule ,MessageModule , ToastModule],
+
   exports: [LayoutComponent,BreadcrumbComponent,ToastModule],
-    providers: [MessageService],
+  
+  providers: [MessageService],
 })
 export class LayoutModule { }

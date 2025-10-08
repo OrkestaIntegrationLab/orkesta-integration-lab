@@ -1,18 +1,11 @@
 ﻿using AutoMapper;
 using Newtonsoft.Json.Linq;
 using Orkesta.Domain.DeviceType;
-using Orkesta.Domain.Weather;
 using Orkesta.Repository.Dao.Common.Database;
 using Orkesta.Repository.Dao.DeviceType;
-using Orkesta.Repository.Dao.Weather;
 using Orkesta.Repository.Interfaces;
 using Orkesta.Repository.Utils;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Orkesta.Repository.Implementations.SqlServer
 {
@@ -28,10 +21,18 @@ namespace Orkesta.Repository.Implementations.SqlServer
         }
         public List<DeviceType> GetDeviceTypeList(DeviceTypeFilter filter)
         {
+            //MAPEO DOMAIN - DAO
             var daoFilter = _mapper.Map<DeviceTypeFilterDao>(filter);
+
+            //LLAMADA SP A BASE DE DATOS
             var dataSet = _connector.GetJson("[Maestro].[spConsultarTiposDispositivos]", JObject.FromObject(daoFilter));
+
+            //DESEREALIZACION DE LA DATA
             var resultDao = JsonUtils.DeserializeObjectOrDefault(dataSet, new List<DeviceTypeDao>());
+
+            //dao a domain
             var resultDoman = _mapper.Map<List<DeviceType>>(resultDao.ToList());
+
             return resultDoman;
         }
 

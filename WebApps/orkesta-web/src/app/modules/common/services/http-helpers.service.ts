@@ -22,7 +22,7 @@ export class HttpHelpersService {
         object[key] instanceof Date ||
         Object.prototype.toString.call(object[key]) === "[object Date]"
       ) {
-        params = params.append(key.toString(), formatDate(object[key]));
+        params = params.append(key.toString(), formatDate(object[key])); 
       } else {
         params = params.append(key.toString(), object[key] ?? "");
       }

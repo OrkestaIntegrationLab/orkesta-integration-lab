@@ -9,6 +9,7 @@ import { HttpHelpersService } from 'src/app/modules/common/services/http-helpers
   providedIn: 'root'
 })
 export class DeviceTypeService {
+ 
   _deviceTypeList:DeviceType[];
   
   private baseUrl = 'https://localhost:7272/DeviceType/';
@@ -17,14 +18,16 @@ export class DeviceTypeService {
                private _httpHelpersService: HttpHelpersService) { }
  
  
- 
+   //GET
    getDeviceTypeList(filters: DeviceTypeFilter) {
      return this._httpClient.get<DeviceType[]>(this.baseUrl, {
          params: this._httpHelpersService.getHttpParamsFromPlainObject(filters)
        });
    }
- 
+   
+   //POST
    UpdateDeviceType(devicetype: DeviceType) {
         return this._httpClient.post<number>(this.baseUrl, devicetype);
 }
+
 }

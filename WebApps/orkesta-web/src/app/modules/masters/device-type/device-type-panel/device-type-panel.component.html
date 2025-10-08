@@ -14,7 +14,7 @@
               maxlength="50" [class]="submitted && (!_data.deviceTypeName || !_data.deviceTypeName.trim()) ? 'ng-dirty ng-invalid' : ''" (keyup.enter)="saveDeviceType()" (paste)="_validations.noPaste($event)">
             <small class="p-invalid" *ngIf="submitted && (!_data.deviceTypeName || !_data.deviceTypeName.trim())">El nombre es
               requerido</small>
-          </div>
+  </div>
 
 
   <div class="p-field p-col-12 p-md-12 p-sm-12">
@@ -32,6 +32,8 @@
   <div class="p-field p-col-12 p-md-12 p-sm-12">
     <span [ngStyle]="{'color':'red'}">(*) Campos obligatorios</span>
   </div>
+
+
   <div class="p-field p-col-12 p-md-12">
     <button   pButton pRipple  label="Guardar" (click)="saveDeviceType()" icon="pi pi-save"
       class="p-button-info p-mr-2"></button>
@@ -39,8 +41,6 @@
 
 
  </div>
-
-
 
 
 </ng-template>

@@ -22,6 +22,9 @@ namespace Orkesta.API.Controllers
         /// Llamadada al servicio  para consultar y actualizar data.
         /// </summary>
         private readonly IDeviceTypeService _deviceTypeService;
+
+
+
         public DeviceTypeController(ILogger<DeviceTypeController> logger, IDeviceTypeService deviceTypeService, IMapper mapper)
         {
             _deviceTypeService = deviceTypeService;

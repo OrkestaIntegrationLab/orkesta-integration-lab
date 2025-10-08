@@ -1,4 +1,5 @@
 <div class="p-grid p-mt-4 p-align-center vertical-container p-p-3" *ngIf="expanded">
+
     <div class="p-col-12 p-md-4 p-lg-3">
         <div class="p-inputgroup">
             <span class="p-float-label">
@@ -7,6 +8,7 @@
             </span>
         </div>
     </div>
+
     <div class="p-col-12 p-md-4 p-lg-3">
         <div class="p-inputgroup">
             <span class="p-float-label">
@@ -16,12 +18,14 @@
         </div>
     </div>
   
-            <div class="p-col-12 p-md-4 p-lg-3 p-fluid">
+    <div class="p-col-12 p-md-4 p-lg-3 p-fluid">
                 <p-dropdown name="cboactive" placeholder="Estatus" [options]="statuslist" [(ngModel)]="filters.indActive" (keyup.enter)="search()"></p-dropdown>
-            </div>
+    </div>
    
     <div class="p-col-12 p-md-3 p-lg-8 p-lg-12 p-d-flex p-jc-end">
         <button pButton pRipple label="Buscar" [disabled]="loading" (click)="search()" icon="pi pi-search" class="p-button-info p-mr-2"></button>
         <button pButton pRipple label="Limpiar" [disabled]="loading" (click)="clearFilters()" icon="pi pi-ban" class="p-button-secondary"></button>
     </div>
+
+    
 </div>

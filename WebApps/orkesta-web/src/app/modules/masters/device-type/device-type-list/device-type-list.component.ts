@@ -13,11 +13,13 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./device-type-list.component.scss']
 })
 export class DeviceTypeListComponent implements OnInit {
+  
   showFilters:boolean = false;
   showDialog:boolean = false;
   loading: boolean = false;
   deviceTypeFilters: DeviceTypeFilter = new DeviceTypeFilter();
   _DeviceTypeViewModel:DeviceType;
+ 
   constructor(
        private _breadcrumbService: BreadcrumbService ,
        private _messageService: MessageService,
@@ -40,6 +42,7 @@ export class DeviceTypeListComponent implements OnInit {
     this._deviceTypeService.getDeviceTypeList(this.deviceTypeFilters).subscribe((data: DeviceType[]) => {
       this._deviceTypeService._deviceTypeList= data;
       this.loading = false;
+      console.log('tipos de dispositivos', data);
     }, (error: HttpErrorResponse) => {
         this.loading = false;
         console.error('Error al cargar los tipos de dispositivos', error);

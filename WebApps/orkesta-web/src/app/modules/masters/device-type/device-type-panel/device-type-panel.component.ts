@@ -35,7 +35,7 @@ export class DeviceTypePanelComponent implements OnInit {
 
   saveDeviceType() 
   {
-    debugger;
+
     this.submitted = true;
     this._data.isdisabled=true;
     
@@ -50,11 +50,12 @@ export class DeviceTypePanelComponent implements OnInit {
     this._data.isdisabled=false;
   }
 
-    Save()
+  Save()
   {
-    debugger;
     this._deviceTypeService.UpdateDeviceType(this._data).subscribe((data) => {
+      
       if (data> 0) {
+
              this._messageService.add({ severity: 'success', summary: 'Guardado', detail: "Guardado exitoso" });
              this.showDialog = false;
              this.showDialogChange.emit(this.showDialog);
@@ -62,6 +63,7 @@ export class DeviceTypePanelComponent implements OnInit {
              this._data.indActive = true;
              this._deviceTypeService.getDeviceTypeList(this.filters).subscribe((data: DeviceType[]) => {
              this._deviceTypeService._deviceTypeList = data;
+           
             });
             
             this.submitted = false;

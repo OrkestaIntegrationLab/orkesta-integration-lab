@@ -18,18 +18,5 @@ export class DeviceComponent implements OnInit {
   }
 
 
-    loadDevices() {
-    this._deviceService.getAll().subscribe(data => {
-      this.devices = data;
-    });
-  }
-
-   addDevice() {
-    if (!this.newDevice.name) return;
-    this._deviceService.create(this.newDevice).subscribe(() => {
-      this.newDevice = new Device;
-      this.loadDevices();
-    });
-  }
 
 }

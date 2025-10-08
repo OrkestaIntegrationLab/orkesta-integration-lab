@@ -1,6 +1,5 @@
 <div class="card p-m-0 p-pb-0">
     <div class="p-d-flex p-ai-center p-jc-between p-flex-column p-flex-md-row">
-      <!-- <h5 class="p-mb-3 p-mb-md-0 p-mb-lg-0">Puertos <span *ngIf="showFilters">> Filtrar</span></h5> -->
       <span class="p-input-icon-left p-ml-md-auto p-mr-md-3 p-mb-3 p-mb-md-0 p-mb-lg-0">
         <i class="pi pi-search"></i>
         <input pInputText type="text"  placeholder="Buscar..." />
@@ -40,4 +39,8 @@
 </div>
 
 
-  <app-device-type-panel *ngIf="showDialog" [(showDialog)]="showDialog" [(_data)]="_DeviceTypeViewModel" [(filters)]="deviceTypeFilters"  ></app-device-type-panel>
+<app-device-type-panel *ngIf="showDialog" 
+                        [(showDialog)]="showDialog" 
+                        [(_data)]="_DeviceTypeViewModel" 
+                        [(filters)]="deviceTypeFilters">
+</app-device-type-panel>

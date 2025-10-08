@@ -86,7 +86,7 @@ import {SelectButtonModule} from 'primeng/selectbutton';
     FormsModule,
     ReactiveFormsModule,
   ],exports:[
-        InputTextModule,
+    InputTextModule,
     ButtonModule,
     SharedModule,
     RippleModule,

@@ -1,0 +1,32 @@
+<div class="p-grid p-mt-4 p-align-center vertical-container p-p-3" *ngIf="expanded">
+
+    <div class="p-col-12 p-md-4 p-lg-3">
+        <div class="p-inputgroup">
+            <span class="p-float-label">
+                <input  [(ngModel)]="filters.brandName" name="brandName" id="brandName" type="text" 
+                        pInputText lettersOnly noneSpecialCharacters maxlength="50"
+                        (keyup.enter)="search()">
+                <label>Marca</label>
+            </span>
+        </div>
+    </div>
+
+    <div class="p-col-12 p-md-4 p-lg-3">
+        <div class="p-inputgroup">
+            <span class="p-float-label">
+                <input id="float-input" [(ngModel)]="filters.abreviature" oninput="this.value = this.value.toUpperCase().trim()" type="text" pInputText maxlength="3" lettersOnly (keyup.enter)="search()">
+                <label for="float-input">Abreviatura</label>
+            </span>
+        </div>
+    </div>
+
+    <div class="p-col-12 p-md-4 p-lg-3 p-fluid">
+        <p-dropdown name="cboactive" placeholder="Estatus" [options]="statuslist" [(ngModel)]="filters.indActive" (keyup.enter)="search()"></p-dropdown>
+    </div>
+
+    <div class="p-col-12 p-md-3 p-lg-8 p-lg-12 p-d-flex p-jc-end">
+        <button pButton pRipple label="Buscar" [disabled]="loading" (click)="search()" icon="pi pi-search" class="p-button-info p-mr-2"></button>
+        <button pButton pRipple label="Limpiar" [disabled]="loading" (click)="clearFilters()" icon="pi pi-ban" class="p-button-secondary"></button>
+    </div>
+
+</div>
