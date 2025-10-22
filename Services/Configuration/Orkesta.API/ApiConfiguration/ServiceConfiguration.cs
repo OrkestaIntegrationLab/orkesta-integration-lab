@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using Orkesta.Domain.Brand;
+using Orkesta.Domain.Client;
 using Orkesta.Domain.Device;
 using Orkesta.Domain.DeviceType;
+using Orkesta.Domain.DocumentType;
 using Orkesta.Domain.Weather;
 using Orkesta.Repository.AutoMapper;
 using Orkesta.Repository.Implementations.SqlServer;
@@ -34,6 +36,14 @@ namespace Orkesta.API.ApiConfiguration
             services.AddTransient<IDeviceService, DeviceService>();
             services.AddTransient<IDeviceRepository, SqlDeviceRepository>();
 
+            //DocumentType
+            services.AddTransient<IDocumentTypeService, DocumentTypeService>();
+            services.AddTransient<IDocumentTypeRepository, SqlDocumentTypeRepository>();
+
+            //Client
+            services.AddTransient<IClientService, ClientService>();
+            services.AddTransient<IClientRepository, SqlClientRepository>();
+
 
             services.AddAutoMapper(cfg =>
             {
@@ -44,6 +54,8 @@ namespace Orkesta.API.ApiConfiguration
                 cfg.AddMaps(typeof(DeviceTypeRepositoryProfile).Assembly);
                 cfg.AddMaps(typeof(BrandRepositoryProfile).Assembly);
                 cfg.AddMaps(typeof(DeviceRepositoryProfile).Assembly);
+                cfg.AddMaps(typeof(DocumentTypeRepositoryProfile).Assembly);
+                cfg.AddMaps(typeof(ClientRepositoryProfile).Assembly);
             });
 
 
